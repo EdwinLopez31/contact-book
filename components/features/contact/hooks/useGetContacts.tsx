@@ -3,13 +3,11 @@ import getData from "@/utils/getData";
 import { baseURL } from "@/globals";
 
 export const getContacts = async ({ ...params }) => {
-  const data = await getData(`${baseURL}/api/contacts`, {
-    ...params,
-  });
+  const data = await getData(`${baseURL}/api/contacts`, {});
   return data;
 };
 
-const useGetContacts = (search = "", initialData = [{}]) => {
+const useGetContacts = (search = "", initialData: {}) => {
   const {
     isLoading,
     isError,

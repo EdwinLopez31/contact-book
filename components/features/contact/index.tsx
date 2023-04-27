@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { FacebookMessengerShareButton } from "react-share";
 import Link from "next/link";
 import Share from "@/components/icons/share";
-import { baseURL } from "@/globals";
+import { baseURL, supabaseUrl } from "@/globals";
 interface ContactProps {
   id: string;
   name?: string | null;
@@ -75,12 +75,12 @@ Contact.Image = function ContactImage({
       placeholder='blur'
       blurDataURL={
         image
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/contact-imgs/${image}`
+          ? `${supabaseUrl}/storage/v1/object/public/contact-imgs/${image}`
           : `/default_avatar.png`
       }
       src={
         image
-          ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/contact-imgs/${image}`
+          ? `${supabaseUrl}/storage/v1/object/public/contact-imgs/${image}`
           : `/default_avatar.png`
       }
       width='64'

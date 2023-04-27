@@ -1,11 +1,16 @@
 import axios from "axios";
 
-const getData = async (baseLink: string, { ...params }) => {
+const getData = async (
+  baseLink: string,
+  { ...params }: { [x: string]: string }
+) => {
   let endpoint = new URL(baseLink);
 
-  Object.keys(params).forEach((key) =>
-    endpoint.searchParams.append(key, params[key])
-  );
+  if (params) {
+    Object.keys(params).forEach((key) =>
+      endpoint.searchParams.append(key, params[key])
+    );
+  }
 
   try {
     const response = await axios.get(endpoint.toString());
