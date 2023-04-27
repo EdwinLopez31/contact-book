@@ -9,6 +9,7 @@ import useGetContacts, {
   getContacts,
 } from "@/components/features/contact/hooks/useGetContacts";
 import InputField from "@/components/form/input-field";
+import { baseURL } from "@/globals";
 const inter = Inter({ subsets: ["latin"] });
 
 interface HomeProps {
