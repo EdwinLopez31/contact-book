@@ -6,7 +6,7 @@ import Layout from "@/components/layout";
 import LeftArrow from "../../components/icons/left-arrow";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { baseURL } from "@/globals";
+import { baseURL, supabaseUrl } from "@/globals";
 // This could've been in a modal but I want to showcase the
 // concept of dynamic routingwhich is why I put this on a separate page
 
@@ -46,12 +46,12 @@ function ViewContactPage({ contactDetail }: ViewContactPageProps) {
             alt={contactDetail?.name ?? ""}
             blurDataURL={
               contactDetail?.image
-                ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/contact-imgs/${contactDetail.image}`
+                ? `${supabaseUrl}/storage/v1/object/public/contact-imgs/${contactDetail.image}`
                 : `/default_avatar.png`
             }
             src={
               contactDetail?.image
-                ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/contact-imgs/${contactDetail.image}`
+                ? `${supabaseUrl}/storage/v1/object/public/contact-imgs/${contactDetail.image}`
                 : `/default_avatar.png`
             }
           />

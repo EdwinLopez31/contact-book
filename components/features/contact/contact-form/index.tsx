@@ -5,6 +5,7 @@ import PictureUpload from "@/components/form/picture-upload";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Contact } from "@prisma/client";
+import { supabaseUrl } from "@/globals";
 interface ContactFormProps {
   initialValues?: Partial<Contact>;
   primaryBtnText: string;
@@ -71,7 +72,7 @@ function ContactForm({
           id='Avatar'
           value={
             formData.image
-              ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/contact-imgs/${formData.image}`
+              ? `${supabaseUrl}/storage/v1/object/public/contact-imgs/${formData.image}`
               : ""
           }
         />
