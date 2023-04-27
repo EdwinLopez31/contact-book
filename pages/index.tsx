@@ -45,7 +45,6 @@ export default function Home({ contacts }: HomeProps) {
       <section className='w-full overflow-y-auto h-screen'>
         <div className='w-full  h-20 flex items-center p-4 justify-between bg-amber-50'>
           <h1 className='text-xl font-medium'>Contacts</h1>
-          <InputField type='search' withLabel={false} />
           <button
             onClick={toggleAddContactModalOpen}
             className='flex gap-2 border-2 border-black p-1 shadow rounded-lg text-sm items-center font-medium text-black'
