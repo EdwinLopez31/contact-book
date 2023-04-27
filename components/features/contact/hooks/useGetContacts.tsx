@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import getData from "@/utils/getData";
+import { baseURL } from "@/globals";
 
 export const getContacts = async ({ ...params }) => {
-  const data = await getData(`${process.env.NEXT_PUBLIC_URL}/api/contacts`, {
+  const data = await getData(`${baseURL}/api/contacts`, {
     ...params,
   });
   return data;

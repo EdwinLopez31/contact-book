@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { FacebookMessengerShareButton } from "react-share";
 import Link from "next/link";
 import Share from "@/components/icons/share";
+import { baseURL } from "@/globals";
 interface ContactProps {
   id: string;
   name?: string | null;
@@ -44,7 +45,7 @@ function Contact({ id, name, number, image }: ContactProps) {
             icon={<Delete />}
           />
           <FacebookMessengerShareButton
-            url={`${process.env.NEXT_PUBLIC_URL}/contact/${id}`}
+            url={`${baseURL}/contact/${id}`}
             appId='786722032609413'
           >
             <Share />

@@ -6,15 +6,13 @@ import Layout from "@/components/layout";
 import LeftArrow from "../../components/icons/left-arrow";
 import { useRouter } from "next/router";
 import useUpdateContact from "../../components/features/contact/hooks/useUpdateContact";
+import { baseURL } from "@/globals";
 // This could've been in a modal but I want to showcase the
 // concept of dynamic routingwhich is why I put this on a separate page
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const { contactId } = ctx.query;
-  const data = await getData(
-    `${process.env.NEXT_PUBLIC_URL}/api/contacts/${contactId}`,
-    {}
-  );
+  const data = await getData(`${baseURL}/api/contacts/${contactId}`, {});
   return {
     props: {
       contactDetail: data,
